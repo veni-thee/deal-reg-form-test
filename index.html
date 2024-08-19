@@ -5,7 +5,8 @@
 <!--  ----------------------------------------------------------------------  -->
  
 <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <!-- <script src="https://www.google.com/recaptcha/api.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         function timestamp() { 
             var response = document.getElementById("g-recaptcha-response");
@@ -15,10 +16,10 @@
     </script>
     <script type="text/javascript">
         function recaptcha_callback(){
-        $('.button').prop("disabled", false);
+            $('.button').prop("disabled", false);
         }
     </script>
-    
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <!--  ----------------------------------------------------------------------  -->
 <!--  NOTE: Please add the following <FORM> element to your page.             -->
 <!--  ----------------------------------------------------------------------  -->
