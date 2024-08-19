@@ -1,0 +1,140 @@
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+<!--  If necessary, please modify the charset parameter to specify the        -->
+<!--  character set of your HTML page.                                        -->
+<!--  ----------------------------------------------------------------------  -->
+ 
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8" />
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+        function timestamp() { 
+            var response = document.getElementById("g-recaptcha-response");
+            if (response == null || response.value.trim() == "") {
+                var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); 
+            } } setInterval(timestamp, 500);
+    </script>
+    <script type="text/javascript">
+        function recaptcha_callback(){
+        $('.button').prop("disabled", false);
+        }
+    </script>
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <FORM> element to your page.             -->
+<!--  ----------------------------------------------------------------------  -->
+ 
+ 
+<form id="dealRegForm" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DE0000000cNed" method="POST">
+    <input type=hidden name='captcha_settings' value='{"keyname":"DealRegFormAPIKeyPair","fallback":"true","orgId":"00DE0000000cNed","ts":""}'>
+    <input type=hidden id="lead_source" name="lead_source" value="Deal Reg Form" />
+    <input type="hidden" name="oid" value="00DE0000000cNed" />
+    <input type="hidden" name="retURL" value="https://www.snaresolutions.com/thank-you/" /> 
+    
+    <!--  ----------------------------------------------------------------------  -->
+    <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+    <!--  these lines if you wish to test in debug mode.                          -->
+    <!--  <input type="hidden" name="debug" value=1>                              -->
+    <!--  <input type="hidden" name="debugEmail"                                  -->
+    <!--  value="jowens@prophecyinternational.com">                               -->
+    <!--  ----------------------------------------------------------------------  -->
+    <div class="field-wrap">
+        <input type=hidden id="lead_source" name="lead_source" value="Deal Reg Form" />
+        <div class="field-col">
+            <h4>PARTNER DETAILS</h4>
+            <br>
+            <div class="input-wrap">
+                <label for="first_name">First Name</label>
+                <input id="first_name" maxlength="40" name="first_name" size="20" type="text"/>
+            </div>
+            
+            <div class="input-wrap">
+                <label for="last_name">Last Name</label>
+                <input id="last_name" maxlength="80" name="last_name" size="20" type="text"/>
+            </div>
+            
+            <div class="input-wrap">
+                Partner Email:<input id="00N0L000006QJLZ" maxlength="80" name="00N0L000006QJLZ" size="20" type="text"/>
+            </div>
+            
+            <div class="input-wrap">
+                <label for="mobile">Mobile</label>
+                <input id="mobile" maxlength="40" name="mobile" size="20" type="text"/>
+            </div>
+            
+            <div class="input-wrap">
+                Amount:<input id="00NE00000047HbU" name="00NE00000047HbU" size="20" type="text"/>
+            </div>
+            
+            <div class="input-wrap">
+                Closing Date:<span class="dateInput dateOnlyInput">
+                    <input id="00NE0000003yCdz" name="00NE0000003yCdz" size="12" type="text"/></span>
+            </div>
+        
+        </div>
+        
+        <div class="field-col">
+            <h4>CUSTOMER DETAILS</h4>
+            <br>
+            <div class="input-wrap">
+                <label for="company">Company</label>
+                <input id="company" maxlength="40" name="company" size="20" type="text"/>
+            </div>
+            
+            <div class="input-wrap">
+                <label for="email">Email</label>
+                <input id="email" maxlength="80" name="email" size="20" type="text"/>
+            </div>
+            
+            <div class="input-wrap">
+                <label for="country_code">Country</label>
+                <select class="country" onchange="loadStates()" required >
+                    <option id="country" name="country" value="">Select Country</option>
+                </select>
+                <input type=hidden id="country_code" name="country_code"/>
+            </div>
+
+            <div class="input-wrap">
+                <label for="state_code">State/Province</label>
+                <select class="state" onchange="getCountryAndStateCodes()">
+                    <option id="state" name="state" value="">Select State/Province</option>
+                </select>
+                <input type=hidden id="state_code" name="state_code"/>
+            </div>
+
+            <div class="input-wrap">
+                <label for="city">City</label>
+                <input id="city" maxlength="40" name="city" size="20" type="text"/>
+            </div>
+
+            <div class="g-recaptcha" data-sitekey="6LeN4icqAAAAAPn0p6eRZo7MPV9MNt4FcAdQ2wRL" data-callback="recaptcha_callback"></div><br>
+        </div>
+    </div>
+
+    <div class="submit-wrap">
+        <input type="submit" name="submit" disabled="true" class="button"/>
+    </div>
+
+</form>
+ 
+<style>
+    .field-wrap {
+        align-items: flex-start;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+ 
+    .field-col {
+        width: 100%;
+    }
+ 
+    .submit-wrap {
+        text-align: right;
+    }
+ 
+    @media only screen and (min-width: 1024px) {
+        .field-col {
+            width: 48%;
+        }
+    }
+</style>
+<script type="text/javascript" src="main.js"></script>
