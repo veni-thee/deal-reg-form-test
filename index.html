@@ -13,25 +13,10 @@
                 var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); 
             } } setInterval(timestamp, 500);
     </script>
-    <!-- <script>
-        document.getElementById('dealRegForm').addEventListener('submit', function(event) {
-            var recaptcha = document.querySelector('.g-recaptcha-response').value;
-            if (!recaptcha) {
-                event.preventDefault(); // Prevent form submission
-                alert('Please complete the reCAPTCHA to proceed.');
-            }
-        });
-    </script> -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('dealRegForm').addEventListener('submit', function(event) {
-                var recaptcha = document.querySelector('.g-recaptcha-response').value;
-                if (!recaptcha) {
-                    event.preventDefault(); // Prevent form submission
-                    alert('Please complete the reCAPTCHA to proceed.');
-                }
-            });
-        });
+    <script type="text/javascript">
+        function recaptcha_callback(){
+        $('.button').prop("disabled", false);
+        }
     </script>
     
 <!--  ----------------------------------------------------------------------  -->
@@ -120,12 +105,12 @@
                 <input id="city" maxlength="40" name="city" size="20" type="text"/>
             </div>
 
-            <div class="g-recaptcha" data-sitekey="6LekuikqAAAAAPXptkvLwBu_Aock1wt1dzmTAJvP"></div>
+            <div class="g-recaptcha" data-sitekey="6LekuikqAAAAAPXptkvLwBu_Aock1wt1dzmTAJvP" data-callback="recaptcha_callback"></div>
         </div>
     </div>
 
     <div class="submit-wrap">
-        <input type="submit" name="submit"/>
+        <input type="submit" name="submit" disabled="true" class="button"/>
     </div>
 
 </form>
