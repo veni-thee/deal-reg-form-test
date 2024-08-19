@@ -14,6 +14,15 @@
                 var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); 
             } } setInterval(timestamp, 500);
     </script>
+    <script>
+        function onloadCallback() {
+            document.getElementById("submitRequest").disabled = true;
+          };
+        function enableBtn(){
+           document.getElementById("submitRequest").disabled = false;
+         }
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 
 <!--  ----------------------------------------------------------------------  -->
 <!--  NOTE: Please add the following <FORM> element to your page.             -->
@@ -101,12 +110,12 @@
                 <input id="city" maxlength="40" name="city" size="20" type="text"/>
             </div>
 
-            <div class="g-recaptcha" data-sitekey="6LfHySkqAAAAAJbB55DceVzojGizLGzyoFZSq1tI"></div>
+            <div class="g-recaptcha" data-sitekey="6LfHySkqAAAAAJbB55DceVzojGizLGzyoFZSq1tI" data-callback="enableBtn"></div>
         </div>
     </div>
 
     <div class="submit-wrap">
-        <input type="submit" name="submit" id="btn_id"/>
+        <input type="submit" name="submit" id="submitRequest"/>
     </div>
 
 </form>
